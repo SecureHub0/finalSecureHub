@@ -1,5 +1,4 @@
-/* index.css */
-
+/* 메인 레이아웃 */
 main {
   flex: 1;
   display: flex;
@@ -12,7 +11,6 @@ main {
 
 main h1 {
   font-size: 32px;
-  color: #1e293b;
   margin-bottom: 10px;
 }
 
@@ -22,6 +20,7 @@ main > p {
   margin-bottom: 52px;
 }
 
+/* 카드 */
 .cards {
   display: flex;
   gap: 28px;
@@ -52,7 +51,7 @@ main > p {
 .card--web:hover {
   border-color: #3b82f6;
 }
-.card--pwn:hover {
+.card--sys:hover {
   border-color: #ef4444;
 }
 .card--cloud:hover {
@@ -77,11 +76,10 @@ main > p {
   transition: stroke 0.2s;
 }
 
-/* 호버 시 각 카드 색상으로 아이콘도 변경 */
 .card--web:hover .card-icon svg {
   stroke: #3b82f6;
 }
-.card--pwn:hover .card-icon svg {
+.card--sys:hover .card-icon svg {
   stroke: #ef4444;
 }
 .card--cloud:hover .card-icon svg {
@@ -107,6 +105,7 @@ main > p {
   line-height: 2;
 }
 
+/* 반응형 모바일 레이아웃 */
 @media (max-width: 660px) {
   .cards {
     flex-direction: column;
@@ -116,4 +115,3 @@ main > p {
     width: 270px;
   }
 }
-

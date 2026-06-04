@@ -1,6 +1,4 @@
-/* about.css */
-
-/* ── 페이지 레이아웃 ── */
+/* 전체 레이아웃 */
 .about-container {
   max-width: 1200px;
   width: 95%;
@@ -8,7 +6,7 @@
   margin: 0 auto;
 }
 
-/* ── 섹션 헤더 ── */
+/* 상단 섹션 헤더 */
 .about-header {
   text-align: center;
   margin-bottom: 60px;
@@ -26,14 +24,14 @@
   font-size: 16px;
 }
 
-/* ── 멤버 그리드 ── */
+/* 팀원 카드 배치 */
 .member-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* ── 멤버 카드 ── */
+/* 팀원 카드 */
 .member-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -43,12 +41,12 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* ── 팀장 카드 – 상단 border로 구분 ── */
+/* 팀장 카드 전용 디자인 */
 .member-card--leader {
   border-top: 3px solid #1e293b;
 }
 
-/* ── 프로필 사진 ── */
+/* 프로필 사진 */
 .member-photo {
   width: 120px;
   height: 8120x;
@@ -58,21 +56,21 @@
   display: block;
 }
 
-/* ── 멤버 이름 ── */
+/* 이름 */
 .member-card h3 {
   font-size: 18px;
   color: #1e293b;
   margin-bottom: 4px;
 }
 
-/* ── 소속 대학교 ── */
+/* 소속 대학 */
 .member-univ {
   color: #94a3b8;
   font-size: 12px;
   margin-bottom: 4px;
 }
 
-/* ── 관심 분야 ── */
+/* 관심 분야 */
 .member-role {
   color: #64748b;
   font-size: 13px;
@@ -80,7 +78,7 @@
   margin-bottom: 25px;
 }
 
-/* ── 링크 버튼 그룹 ── */
+/* 링크 버튼 */
 .member-links {
   display: flex;
   flex-direction: column;
@@ -101,7 +99,7 @@
   flex-shrink: 0;
 }
 
-/* ── 반응형 ── */
+/* 반응형 모바일 레이아웃 */
 @media (max-width: 900px) {
   .member-grid {
     grid-template-columns: 1fr;
@@ -110,4 +108,3 @@
     padding: 40px 20px;
   }
 }
-

@@ -1,5 +1,4 @@
-/* main.css */
-
+/* 배경 및 전체 컨테이너 */
 body {
   background: #f4f6f9;
 }
@@ -13,7 +12,7 @@ body {
   overflow: hidden;
 }
 
-/* ── 상단 탭 ── */
+/* 분야 전환 메뉴 (WEB, SYSETM, CLOUD) */
 .top-nav {
   display: flex;
   justify-content: flex-end;
@@ -33,16 +32,21 @@ body {
   transition: color 0.15s, border-color 0.15s;
 }
 
-.top-nav a.active             { color: #2980b9; border-bottom-color: #2980b9; }
-.top-nav a:hover:not(.active) { color: #1e293b; }
+.top-nav a.active { 
+  color: #2980b9; 
+  border-bottom-color: #2980b9; 
+}
+.top-nav a:hover:not(.active) { 
+  color: #1e293b; 
+}
 
-/* ── 본문 레이아웃 ── */
+/* 본문 레이아웃 (사이드바와 오른쪽 게시판 테이블 가로로 묶기) */
 .main-wrapper {
   display: flex;
   gap: 0;
 }
 
-/* ── 사이드바 ── */
+/* 사이드 바 */
 .sidebar {
   width: 220px;
   min-width: 220px;
@@ -58,8 +62,12 @@ body {
   margin-bottom: 10px;
 }
 
-.sidebar ul { list-style: none; padding: 0; }
-.sidebar li { padding: 8px 0; }
+.sidebar ul { 
+  list-style: none; padding: 0; 
+}
+.sidebar li { 
+  padding: 8px 0; 
+}
 
 .sidebar a {
   text-decoration: none;
@@ -69,10 +77,14 @@ body {
   transition: color 0.15s;
 }
 
-.sidebar a:hover   { color: #2980b9; font-weight: bold; }
-.sidebar a.current { color: #2980b9; font-weight: bold; }
+.sidebar a:hover   { 
+  color: #2980b9; font-weight: bold; 
+}
+.sidebar a.current { 
+  color: #2980b9; font-weight: bold; 
+}
 
-/* ── 게시판 ── */
+/* 게시판 */
 .content {
   flex: 1;
   min-width: 0; 
@@ -80,6 +92,7 @@ body {
   overflow-wrap: break-word;
 }
 
+/* 분야 전환 메뉴 */
 .content-header h2 {
   margin: 0 0 4px;
   color: #2c3e50;
@@ -92,12 +105,14 @@ body {
   margin-bottom: 20px;
 }
 
+/* 게시판 테이블 */
 .board-table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* (수정!) 보드 크기 통일 */
+  table-layout: fixed;
 }
 
+/* 게시판 제목 */
 .board-table th {
   background: #f8f9fa;
   border-top: 2px solid #333;
@@ -107,6 +122,7 @@ body {
   text-align: center;
 }
 
+/* 게시판 본문 */
 .board-table td {
   border-bottom: 1px solid #eee;
   padding: 12px;
@@ -115,15 +131,14 @@ body {
   color: #1e293b;
 }
 
-/* (수정!) 컬럼 공간 크기 수정 */
-
+/* 게시판 컬럼 별 너비 고정 */
 /* 번호 */
 .board-table th:nth-child(1),
 .board-table td:nth-child(1) {
   width: 80px;
 }
 
-/* 구분 (핵심!) */
+/* 구분 */
 .board-table th:nth-child(2),
 .board-table td:nth-child(2) {
   width: 150px;
@@ -142,9 +157,9 @@ body {
   text-overflow: ellipsis;
 }
 
-
-.title-cell { text-align: left !important; }
-
+.title-cell { 
+  text-align: left !important; 
+}
 .title-cell a {
   text-decoration: none;
   color: #34495e;
@@ -155,7 +170,15 @@ body {
   color: #2980b9;
 }
 
+/* 반응형 모바일 레이아웃 */
 @media (max-width: 660px) {
-  .main-wrapper { flex-direction: column; }
-  .sidebar      { width: 100%; min-width: unset; border-right: none; border-bottom: 1px solid #eee; }
+  .main-wrapper { 
+    flex-direction: column; 
+  }
+  .sidebar { 
+    width: 100%; 
+    min-width: unset; 
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
 }

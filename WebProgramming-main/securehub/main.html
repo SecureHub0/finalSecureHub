@@ -3,20 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SecureHub – WEB 취약점</title>
+    <title id="pageTitle">SecureHub – WEB 취약점</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="common.css" />
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <header>
       <a class="logo" href="index.html">Security<span>Community</span></a>
+
       <div class="header-crumb">
-        <span class="active">WEB</span>
+        <span class="active" id="fieldTitle">WEB</span>
       </div>
+      
       <div class="header-right">
         <a class="btn btn-primary" href="write.html">✏️ 글쓰기</a>
       </div>
@@ -24,30 +26,29 @@
 
     <div class="container">
       <nav class="top-nav">
-        <a href="main_web.html" class="active">WEB</a>
-        <a href="main_system.html">SYSTEM</a>
-        <a href="main_cloud.html"> CLOUD</a>
+        <a href="main.html?field=web">WEB</a>
+        <a href="main.html?field=system">SYSTEM</a>
+        <a href="main.html?field=cloud">CLOUD</a>
       </nav>
 
       <div class="main-wrapper">
+        
         <aside class="sidebar">
-          <h3>WEB 분류</h3>
-          <ul>
-            <li><a href="main_web.html">- 전체보기 (3)</a></li>
-            <li>
-              <a href="main_web_injection.html" class="current">
-                - Injection (1)</a
-              >
-            </li>
-            <li><a href="main_web_xss,csrf.html"> - XSS/CSRF (2)</a></li>
+          <h3>분류</h3>
+          <ul id="sidebarMenu">
+            <li><a href="#" data-category="all">전체보기</a></li>
+            <li><a href="#" data-category="security">Security</a></li>
+            <li><a href="#" data-category="vulnerability">Vulnerability</a></li>
+            <li><a href="#" data-category="cve">CVE</a></li>
           </ul>
         </aside>
-
+        
         <main class="content">
           <div class="content-header">
-            <h2>WEB 보안 취약점</h2>
-            <p>분류: WEB &gt; Injection</p>
+            <h2 id="contentTitle">WEB 보안 취약점</h2>
+            <p id="contentCrumb">분류: WEB &gt; 전체보기</p>
           </div>
+          
           <table class="board-table">
             <thead>
               <tr>
@@ -57,21 +58,14 @@
                 <th>날짜</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><span class="tag tag-inj">Injection</span></td>
-                <td class="title-cell">
-                  <a href="view_sql.html"
-                    >[Injection] SQL 인젝션 분석 및 방어</a
-                  >
-                </td>
-                <td>2026-04-09</td>
-              </tr>
-            </tbody>
+            <tbody id="boardBody"></tbody>
           </table>
         </main>
+        
       </div>
     </div>
+
+    <script src="js/postData.js"></script> 
+    <script src="js/main.js"></script>
   </body>
 </html>

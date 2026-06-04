@@ -1,5 +1,3 @@
-/* common.css – 공통 스타일 */
-
 *,
 *::before,
 *::after {
@@ -17,7 +15,7 @@ body {
   flex-direction: column;
 }
 
-/* ── Header ── */
+/* 상단 헤더 */
 header {
   height: 58px;
   background: #ffffff;
@@ -29,6 +27,7 @@ header {
   gap: 16px;
 }
 
+/* 로고 */
 .logo {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
@@ -42,6 +41,7 @@ header {
   color: #3b82f6;
 }
 
+/* 헤더 중앙 (현재 위치 표시 WEB > Vulnerability) */
 .header-crumb {
   font-size: 13px;
   color: #94a3b8;
@@ -66,12 +66,13 @@ header {
   font-weight: 500;
 }
 
+/* 글쓰기 버튼(배치) */
 .header-right {
   margin-left: auto;
   flex-shrink: 0;
 }
 
-/* ── 버튼 ── */
+/* 목록 버튼 */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -90,10 +91,13 @@ header {
     color 0.15s,
     background 0.15s;
 }
+
 .btn:hover {
   border-color: #3b82f6;
   color: #3b82f6;
 }
+
+/* 글쓰기 버튼, 작성 버튼 */
 .btn-primary {
   background: #3b82f6;
   color: #fff;
@@ -104,6 +108,8 @@ header {
   border-color: #2563eb;
   color: #fff;
 }
+
+/* 삭제 버튼 */
 .btn-danger {
   background: #ef4444;
   color: #fff;
@@ -114,6 +120,8 @@ header {
   border-color: #dc2626;
   color: #fff;
 }
+
+/* 수정 버튼 */
 .btn-gray {
   background: #64748b;
   color: #fff;
@@ -125,7 +133,7 @@ header {
   color: #fff;
 }
 
-/* ── 태그 ── */
+/* 카테고리 */
 .tag {
   display: inline-block;
   padding: 2px 8px;
@@ -134,21 +142,18 @@ header {
   font-weight: 700;
   color: #fff;
 }
+
+/* 카테고리 - Vulnerability */
+.tag-vul {
+  background: #e74c3c;
+}
+
+/* 카테고리 - Security */
+.tag-sec {
+  background: #2ecc71;
+}
+
+/* 카테고리 - CVE */
 .tag-cve {
   background: #34495e;
-}
-.tag-zero {
-  background: #e74c3c;
-}
-.tag-one {
-  background: #f39c12;
-}
-.tag-inj {
-  background: #34495e;
-}
-.tag-xss {
-  background: #e74c3c;
-}
-.tag-csrf {
-  background: #f39c12;
 }

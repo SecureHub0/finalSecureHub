@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecureHub – 게시글 상세</title>
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=JetBrains+Mono&swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/view.css" />
+  </head>
+  <body>
+    
+    <header>
+      <a class="logo" href="index.html">Security<span>Community</span></a>
+      
+      <div class="header-crumb top-nav">
+        <a href="#" id="crumbCategoryLink">SYSTEM</a> 
+        <span class="sep">›</span>
+        <span class="active">게시글 상세</span>
+      </div>
+      
+      <div class="header-right">
+        <a class="btn" href="#" id="backToListBtn">← 목록</a>
+      </div>
+    </header>
+
+    <article class="view-wrapper">
+      <div class="container">
+        
+        <h1 class="title" id="postTitle"></h1>
+
+        <div class="info">
+          <span class="tag tag-inj" id="postCategory"></span>
+          <span class="sep-bar">|</span>
+          <span class="nickname" id="postAuthor"></span>
+          <span class="sep-bar">|</span>
+          <span class="date" id="postDate"></span>
+        </div>
+
+        <div class="content" id="postContent">
+          
+          <section id="sectionOverview">
+            <h3 class="section-title" id="overviewTitle"></h3>
+            <p id="overviewDesc"></p>
+          </section>
+
+          <section id="sectionCoreConcept">
+            <h3 class="section-title" id="coreConceptTitle"></h3>
+            <p id="coreConceptDesc"></p>
+            
+            <div id="codeBlockContainer">
+              <code id="codeBlock"></code>
+            </div>
+          </section>
+
+          <section id="sectionDamageTypes">
+            <h3 class="section-title" id="damageTypesTitle"></h3>
+            <ul id="damageTypesList"></ul>
+          </section>
+
+          <section id="sectionDefenses">
+            <h3 class="section-title" id="defensesTitle"></h3>
+            <ul id="defensesList"></ul>
+          </section>
+
+          <section id="sectionReferences">
+            <h3 class="section-title" id="referencesTitle"></h3>
+            <ul id="referencesList"></ul>
+          </section>
+          
+        </div> <div class="buttons">
+          <a class="btn btn-gray" href="#" id="editPostBtn">수정</a>
+          <a class="btn btn-danger" href="#" id="deletePostBtn">삭제</a>
+        </div>
+        
+      </div> </article>
+
+    <script src="js/postData.js"></script> 
+    <script src="js/view.js"></script>
+  </body>
+</html>
