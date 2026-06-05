@@ -86,11 +86,12 @@
 
 /* 코드 블록 */
 .code-box-style {
-    background: #f8f9fa;
+    background: #f1f3f5;
     padding: 14px;
     border-radius: 6px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #f1f3f5;
     margin-bottom: 12px;
+    margin: 15px 0;
     overflow-x: auto;
 }
 

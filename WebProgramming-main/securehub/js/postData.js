@@ -44,7 +44,7 @@ const postList = [
     title: "[XSS] 신규 게시판 스크립트 실행 취약점",
     category: "vulnerability",
     author: "Kim",
-    date: "2026-04-09",
+    date: "2026-04-15",
     overview: {
       title: "1. 개요",
       description: "XSS(Cross-Site Scripting, 사이트 간 스크립팅)는 웹 애플리케이션이 사용자 입력값을 검증하지 않고 그대로 브라우저에 출력할 때 발생하는 취약점입니다. 공격자가 악성 스크립트를 삽입하면, 해당 웹 페이지를 방문하는 일반 사용자의 브라우저에서 스크립트가 실행됩니다."
@@ -83,7 +83,7 @@ const postList = [
     title: "[CSRF] CSRF(사이트 간 요청 위조) 분석 및 방어",
     category: "vulnerability",
     author: "Kim",
-    date: "2026-04-09",
+    date: "2026-05-07",
     overview: {
       title: "1. 개요",
       description: "CSRF(Cross-Site Request Forgery, 사이트 간 요청 위조)는 특정 웹사이트에 로그인되어 있는 사용자가, 공격자가 유도한 악성 링크나 페이지를 방문함으로써 자신의 의지와 상관없이 특정 요청(수정, 송금, 삭제 등)을 서버에 전송하게 만드는 취약점입니다."
@@ -170,7 +170,7 @@ ENDIF`
     title: "sudo 원데이 분석 (CVE-2019-14287)",
     category: "CVE",
     author: "cucu",
-    date: "2026-06-04",
+    date: "2026-05-18",
     overview: {
       title: "1. 개요",
       description: "Sudo 취약점(CVE-2019-14287)은 -u 옵션의 입력값 검증 미흡을 이용하여 /etc/sudoers 파일의 보안 정책을 우회하고 root 권한을 획득하는 공격입니다."
@@ -206,7 +206,7 @@ ENDIF`
     title: "BOF (Buffer OverFlow) 개념 정리",
     category: "Vulnerability",
     author: "cucu",
-    date: "2026-06-04",
+    date: "2026-06-01",
     overview: {
       title: "1. 개요",
       description: "버퍼 오버플로우는 할당된 메모리 범위를 넘어서는 데이터를 입력하여 인접한 영역을 덮어쓰는 취약점입니다."
@@ -244,7 +244,7 @@ ENDIF`
     title: "ROP (Return Oriented Programming)",
     category: "Vulnerability",
     author: "cucu",
-    date: "2026-06-04",
+    date: "2026-06-03",
     overview: {
       title: "1. 개요",
       description: "기존 코드 조각을 이용한 공격 기법"
@@ -280,7 +280,7 @@ ENDIF`
     title: "PIE (Position-Independent Executable)",
     category: "Security",
     author: "cucu",
-    date: "2026-06-04",
+    date: "2026-06-03",
     overview: {
       title: "1. 개요",
       description: "코드 영역까지 무작위 주소에 배치하여 실행 파일의 위치를 예측할 수 없게 만드는 보안 기술입니다."
@@ -305,6 +305,197 @@ ENDIF`
       title: "5. 링크",
       list: [
         { name: "RedHat: PIE 블로그", url: "https://www.redhat.com/en/blog/position-independent-executables-pie" }
+      ]
+    }
+  },
+  {
+    id: 8,
+    field: "cloud",
+    title: "[Cloud] 클라우드 권한 과잉 및 IAM 정책 분석",
+    category: "vulnerability",
+    author: "Kim",
+    date: "2026-05-02",
+    overview: {
+      title: "1. 개요",
+      description: "클라우드 IAM(Identity and Access Management)에서 최소 권한 원칙이 지켜지지 않아, 사용자가 업무에 필요한 것보다 훨씬 더 넓은 권한을 가지게 되는 취약점입니다."
+    },
+    coreConcept: {
+      title: "2. 핵심 개념",
+      description: "클라우드 서비스 도입 초기, 편의를 위해 'AdministratorAccess' 권한을 사용자에게 부여하는 경우가 많습니다. 이는 계정 탈취 시 클라우드 전체 자원이 공격자에게 노출되는 치명적인 결과로 이어집니다.",
+      code: "Effect: Allow, Action: *, Resource: *"
+    },
+    damageTypes: {
+      title: "3. 주요 피해 유형",
+      list: [
+        { label: "데이터 유출:", detail: "클라우드 스토리지(S3 등)의 모든 데이터 접근 가능" },
+        { label: "인프라 제어:", detail: "가상 머신 인스턴스 중지 및 삭제로 인한 서비스 가용성 파괴" },
+        { label: "비용 폭탄:", detail: "공격자에 의한 채굴 서버 배포로 인한 클라우드 사용료 급증" }
+      ]
+    },
+    defenses: {
+      title: "4. 방어 방법",
+      list: [
+        "최소 권한의 원칙(Least Privilege) 적용 및 정기적인 권한 검토",
+        "IAM Access Analyzer를 활용한 미사용 권한 식별",
+        "다중 인증(MFA) 강제 적용"
+      ]
+    },
+    referenceLinks: {
+      title: "5. 링크",
+      list: [
+        { name: "AWS IAM 보안 모범 사례", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" }
+      ]
+    }
+  },
+  {
+    id: 9,
+    field: "cloud",
+    title: "클라우드 스토리지 공개 노출 위험성",
+    category: "vulnerability",
+    author: "Kim",
+    date: "2026-05-17",
+    overview: {
+      title: "1. 개요",
+      description: "AWS S3 버킷이나 Azure Blob Storage와 같은 클라우드 스토리지 설정 미흡으로 인해, 내부 정보가 외부 인터넷에 누구나 접근 가능하게 설정된 상태를 말합니다."
+    },
+    coreConcept: {
+      title: "2. 핵심 개념",
+      description: "스토리지 생성 시 기본적으로 '비공개'가 아닌 '공개'로 설정하거나, 정책 작성 실수로 인해 인증되지 않은 외부 사용자가 버킷 내 파일을 조회/다운로드할 수 있게 됩니다.",
+      code: "Bucket Policy: 'Effect': 'Allow', 'Principal': '*' "
+    },
+    damageTypes: {
+      title: "3. 주요 피해 유형",
+      list: [
+        { label: "민감 정보 노출:", detail: "고객 개인정보, DB 백업 파일, 소스코드 유출" },
+        { label: "랜섬웨어:", detail: "데이터를 암호화하거나 삭제하여 복구 요구" }
+      ]
+    },
+    defenses: {
+      title: "4. 방어 방법",
+      list: [
+        "스토리지 블록 퍼블릭 액세스(Block Public Access) 설정 활성화",
+        "정기적인 스토리지 구성 스캔 및 노출 점검",
+        "데이터 암호화(Encryption) 적용"
+      ]
+    },
+    referenceLinks: {
+      title: "5. 링크",
+      list: [
+        { name: "S3 버킷 퍼블릭 액세스 차단 가이드", url: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html" }
+      ]
+    }
+  },
+  {
+    id: 10,
+    field: "cloud",
+    title: "클라우드 보안의 핵심: 공동 책임 모델",
+    category: "security",
+    author: "Kim",
+    date: "2026-05-29",
+    overview: {
+      title: "1. 개요",
+      description: "클라우드 보안은 CSP(Cloud Service Provider)와 고객사가 함께 책임져야 한다는 개념입니다. 어디까지가 누구의 책임인지 이해하는 것이 가장 기본입니다."
+    },
+    coreConcept: {
+      title: "2. 핵심 개념",
+      description: "CSP는 클라우드 자체(인프라)를 보호하고, 고객은 클라우드 내부(데이터, 설정, 애플리케이션)를 보호해야 합니다.",
+      code: "Security OF the Cloud (CSP) vs Security IN the Cloud (Customer)"
+    },
+    damageTypes: {
+      title: "3. 주요 피해 유형",
+      list: [
+        { label: "책임 공백:", detail: "누구의 책임인지 모르는 상태에서 보안 사고 발생" },
+        { label: "설정 오류:", detail: "고객 책임 영역인 설정(설정 미흡)으로 인한 대형 사고" }
+      ]
+    },
+    defenses: {
+      title: "4. 방어 방법",
+      list: [
+        "CSP가 제공하는 보안 가이드라인 준수",
+        "클라우드 보안 형상 관리(CSPM) 도구 도입",
+        "보안 정책에 대한 정기적인 교육 및 감사"
+      ]
+    },
+    referenceLinks: {
+      title: "5. 링크",
+      list: [
+        { name: "클라우드 공유 책임 모델 이해", url: "https://aws.amazon.com/ko/compliance/shared-responsibility-model/" }
+      ]
+    }
+  },
+  {
+    id: 11,
+    field: "cloud",
+    title: "클라우드 메타데이터 서비스(IMDSv1) 취약점",
+    category: "vulnerability",
+    author: "Kim",
+    date: "2026-06-01",
+    overview: {
+      title: "1. 개요",
+      description: "인스턴스 메타데이터 서비스(IMDS)의 이전 버전(v1)을 사용할 때, SSRF(Server-Side Request Forgery) 취약점을 통해 인스턴스에 할당된 임시 보안 자격 증명을 탈취할 수 있는 취약점입니다."
+    },
+    coreConcept: {
+      title: "2. 핵심 개념",
+      description: "클라우드 내부 서비스는 169.254.169.254 주소를 통해 환경 정보를 가져옵니다. 공격자가 웹 애플리케이션의 SSRF를 이용해 이 주소로 요청을 보내면, 민감한 IAM 인증 정보를 탈취할 수 있습니다.",
+      code: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+    },
+    damageTypes: {
+      title: "3. 주요 피해 유형",
+      list: [
+        { label: "권한 상승:", detail: "인스턴스에 부여된 IAM 역할 권한을 공격자가 그대로 사용" },
+        { label: "데이터 노출:", detail: "탈취한 권한으로 클라우드 스토리지 등 자원 전반에 접근" }
+      ]
+    },
+    defenses: {
+      title: "4. 방어 방법",
+      list: [
+        "IMDSv2(세션 기반 인증)로 업그레이드 및 필수 적용",
+        "IMDS 접근을 제한하는 네트워크 정책(Security Group/NACL) 설정",
+        "SSRF 취약점 근본 제거"
+      ]
+    },
+    referenceLinks: {
+      title: "5. 링크",
+      list: [
+        { name: "AWS IMDSv2 사용 권장 문서", url: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html" }
+      ]
+    }
+  },
+  {
+    id: 12,
+    field: "cloud",
+    title: "CVE-2026-5544: 쿠버네티스 대시보드 RCE 취약점",
+    category: "cve",
+    author: "Kim",
+    date: "2026-06-02",
+    overview: {
+      title: "1. 개요",
+      description: "쿠버네티스(Kubernetes) 대시보드 컴포넌트에서 발견된 원격 코드 실행 취약점입니다. 공격자가 조작된 요청을 보내 API 서버를 통해 컨테이너 내부에서 임의 명령어를 실행할 수 있습니다."
+    },
+    coreConcept: {
+      title: "2. 핵심 개념",
+      description: "대시보드의 특정 API 엔드포인트가 인증이 미흡한 상태로 노출될 때 발생합니다. 공격자는 이를 통해 클러스터 내 다른 파드(Pod)까지 권한을 확대할 수 있습니다.",
+      code: "POST /api/v1/namespaces/{ns}/pods/{pod}/exec?command=sh&..."
+    },
+    damageTypes: {
+      title: "3. 주요 피해 유형",
+      list: [
+        { label: "클러스터 장악:", detail: "쿠버네티스 노드 전체에 대한 명령어 실행 권한 획득" },
+        { label: "자원 탈취:", detail: "컨테이너 내 환경 변수(Secret) 추출로 DB 계정 정보 유출" }
+      ]
+    },
+    defenses: {
+      title: "4. 방어 방법",
+      list: [
+        "쿠버네티스 대시보드 보안 업데이트(버전 2.x 이상 권장)",
+        "RBAC(Role-Based Access Control)을 엄격하게 적용하여 권한 최소화",
+        "대시보드를 외부에 직접 노출하지 않고 내부망에서만 접근 허용"
+      ]
+    },
+    referenceLinks: {
+      title: "5. 링크",
+      list: [
+        { name: "Kubernetes 보안 공고", url: "https://kubernetes.io/docs/concepts/security/" }
       ]
     }
   }
