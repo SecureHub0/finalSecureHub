@@ -131,7 +131,6 @@ body {
   color: #1e293b;
 }
 
-/* 게시판 컬럼 별 너비 고정 */
 /* 번호 */
 .board-table th:nth-child(1),
 .board-table td:nth-child(1) {

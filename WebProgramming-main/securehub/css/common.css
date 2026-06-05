@@ -66,12 +66,6 @@ header {
   font-weight: 500;
 }
 
-/* 글쓰기 버튼(배치) */
-.header-right {
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
 /* 목록 버튼 */
 .btn {
   display: inline-flex;
@@ -95,42 +89,6 @@ header {
 .btn:hover {
   border-color: #3b82f6;
   color: #3b82f6;
-}
-
-/* 글쓰기 버튼, 작성 버튼 */
-.btn-primary {
-  background: #3b82f6;
-  color: #fff;
-  border-color: #3b82f6;
-}
-.btn-primary:hover {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #fff;
-}
-
-/* 삭제 버튼 */
-.btn-danger {
-  background: #ef4444;
-  color: #fff;
-  border-color: #ef4444;
-}
-.btn-danger:hover {
-  background: #dc2626;
-  border-color: #dc2626;
-  color: #fff;
-}
-
-/* 수정 버튼 */
-.btn-gray {
-  background: #64748b;
-  color: #fff;
-  border-color: #64748b;
-}
-.btn-gray:hover {
-  background: #475569;
-  border-color: #475569;
-  color: #fff;
 }
 
 /* 카테고리 */
