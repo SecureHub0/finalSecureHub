@@ -1,147 +1,282 @@
 const postList = [
   {
     id: 1,
-    field: "web",
-    title: "[Injection] SQL 인젝션 분석 및 방어",
-    category: "vulnerability",
-    author: "Kim",
-    date: "2026-04-09",
+    field: 'web',
+    title: '[Injection] SQL 인젝션 분석 및 방어',
+    category: 'vulnerability',
+    author: 'Kim',
+    date: '2026-04-09',
     overview: {
-      title: "1. 개요",
-      description: "SQL 인젝션(SQL Injection)이란 웹 애플리케이션이 사용자로부터 입력받은 값을 적절한 검증 없이 데이터베이스(DB) 쿼리문 생성을 위한 인자로 사용할 때 발생하는 취약점입니다. 입력값이 단순 데이터가 아닌 'SQL 명령어(코드)'로 해석되어 데이터베이스가 비정상적으로 동작하게 만듭니다."
+      title: '1. 개요',
+      description:
+        "SQL 인젝션(SQL Injection)이란 웹 애플리케이션이 사용자로부터 입력받은 값을 적절한 검증 없이 데이터베이스(DB) 쿼리문 생성을 위한 인자로 사용할 때 발생하는 취약점입니다. 입력값이 단순 데이터가 아닌 'SQL 명령어(코드)'로 해석되어 데이터베이스가 비정상적으로 동작하게 만듭니다.",
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "공격자가 입력 창이나 URL 파라미터에 악의적인 SQL 구문을 주입하면, 웹 서버는 이를 정상적인 SQL 명령의 일부로 판단하고 실행합니다.\n공격 원리 예시:",
-      code: "SELECT * FROM users WHERE id = 'admin' OR '1'='1' AND pw = '...';"
+      title: '2. 핵심 개념',
+      description:
+        '공격자가 입력 창이나 URL 파라미터에 악의적인 SQL 구문을 주입하면, 웹 서버는 이를 정상적인 SQL 명령의 일부로 판단하고 실행합니다.\n공격 원리 예시:',
+      code: "SELECT * FROM users WHERE id = 'admin' OR '1'='1' AND pw = '...';",
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "데이터 유출:", detail: "회원 정보, 비밀번호 등 민감 데이터 무단 조회" },
-        { label: "인증 우회:", detail: "비밀번호를 몰라도 관리자 계정으로 로그인 성공" },
-        { label: "데이터 파괴:", detail: "DB 테이블 삭제(Drop) 또는 임의 데이터 수정" }
-      ]
+        {
+          label: '데이터 유출:',
+          detail: '회원 정보, 비밀번호 등 민감 데이터 무단 조회',
+        },
+        {
+          label: '인증 우회:',
+          detail: '비밀번호를 몰라도 관리자 계정으로 로그인 성공',
+        },
+        {
+          label: '데이터 파괴:',
+          detail: 'DB 테이블 삭제(Drop) 또는 임의 데이터 수정',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "PreparedStatement(매개변수화된 쿼리)를 사용하여 입력값 분리",
-        "사용자 입력값에 대해 화이트리스트 기반 필터링 적용",
-        "DB 계정의 권한을 최소한으로 설정하여 피해 범위 최소화"
-      ]
+        'PreparedStatement(매개변수화된 쿼리)를 사용하여 입력값 분리',
+        '사용자 입력값에 대해 화이트리스트 기반 필터링 적용',
+        'DB 계정의 권한을 최소한으로 설정하여 피해 범위 최소화',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "Drupal API SQL Injection (CVE-2026-9082) 동향", url: "https://www.skshieldus.com/security-insights/trends/drupal-api-sql-injection-cve-2026-9082" }
-      ]
-    }
+        {
+          name: 'Drupal API SQL Injection (CVE-2026-9082) 동향',
+          url: 'https://www.skshieldus.com/security-insights/trends/drupal-api-sql-injection-cve-2026-9082',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question: 'SQL 인젝션(Injection)의 주된 원인은 무엇인가요?',
+        options: [
+          '데이터베이스의 용량 부족',
+          '사용자 입력값에 대한 검증 누락',
+          '복잡한 비밀번호 사용',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          '다음 중 SQL 인젝션을 방어하기 위한 가장 올바른 방법은 무엇인가요?',
+        options: [
+          'Prepared Statement (바인딩) 사용',
+          '데이터베이스 재부팅',
+          '모든 사용자에게 관리자 권한 부여',
+        ],
+        answer: 0,
+      },
+      {
+        question:
+          'SQL 인젝션 공격이 성공했을 때 발생할 수 있는 피해 유형이 아닌 것은?',
+        options: [
+          '데이터베이스 정보 유출',
+          '서버의 물리적 파손',
+          '관리자 계정 인증 우회',
+        ],
+        answer: 1,
+      },
+    ],
   },
   {
     id: 2,
-    field: "web",
-    title: "[XSS] 신규 게시판 스크립트 실행 취약점",
-    category: "vulnerability",
-    author: "Kim",
-    date: "2026-04-15",
+    field: 'web',
+    title: '[XSS] 신규 게시판 스크립트 실행 취약점',
+    category: 'vulnerability',
+    author: 'Kim',
+    date: '2026-04-15',
     overview: {
-      title: "1. 개요",
-      description: "XSS(Cross-Site Scripting, 사이트 간 스크립팅)는 웹 애플리케이션이 사용자 입력값을 검증하지 않고 그대로 브라우저에 출력할 때 발생하는 취약점입니다. 공격자가 악성 스크립트를 삽입하면, 해당 웹 페이지를 방문하는 일반 사용자의 브라우저에서 스크립트가 실행됩니다."
+      title: '1. 개요',
+      description:
+        'XSS(Cross-Site Scripting, 사이트 간 스크립팅)는 웹 애플리케이션이 사용자 입력값을 검증하지 않고 그대로 브라우저에 출력할 때 발생하는 취약점입니다. 공격자가 악성 스크립트를 삽입하면, 해당 웹 페이지를 방문하는 일반 사용자의 브라우저에서 스크립트가 실행됩니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "사용자의 브라우저에서 의도하지 않은 악성 스크립트가 실행되도록 유도하는 취약점입니다. 공격 원리 예시:",
-      code: "<script>alert('XSS');</script>"
+      title: '2. 핵심 개념',
+      description:
+        '사용자의 브라우저에서 의도하지 않은 악성 스크립트가 실행되도록 유도하는 취약점입니다. 공격 원리 예시:',
+      code: "<script>alert('XSS');</script>",
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "세션 탈취:", detail: "사용자의 쿠키 정보를 가로채 계정 도용" },
-        { label: "피싱:", detail: "가짜 입력창을 띄워 개인정보 유도" },
-        { label: "데이터 변조:", detail: "웹 페이지의 내용을 임의로 수정" }
-      ]
+        {
+          label: '세션 탈취:',
+          detail: '사용자의 쿠키 정보를 가로채 계정 도용',
+        },
+        { label: '피싱:', detail: '가짜 입력창을 띄워 개인정보 유도' },
+        { label: '데이터 변조:', detail: '웹 페이지의 내용을 임의로 수정' },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "입력값에 대한 검증 및 필터링 수행",
-        "출력 시 HTML 엔티티 인코딩 적용",
-        "보안 정책(CSP) 설정을 통해 스크립트 실행 제한"
-      ]
+        '입력값에 대한 검증 및 필터링 수행',
+        '출력 시 HTML 엔티티 인코딩 적용',
+        '보안 정책(CSP) 설정을 통해 스크립트 실행 제한',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "EQST Insight - CVE 분석 보고서", url: "https://www.skshieldus.com/report/eqstInsight/cve2411.html" }
-      ]
-    }
+        {
+          name: 'EQST Insight - CVE 분석 보고서',
+          url: 'https://www.skshieldus.com/report/eqstInsight/cve2411.html',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question: 'XSS 취약점의 주된 공격 대상은 누구인가요?',
+        options: [
+          '서버 자체',
+          '웹 페이지를 방문하는 일반 사용자',
+          '데이터베이스',
+        ],
+        answer: 1,
+      },
+      {
+        question: 'XSS 공격을 통해 주로 발생하는 피해는 무엇인가요?',
+        options: [
+          '서버 과부하',
+          '세션 쿠키 탈취 및 계정 도용',
+          'DB 데이터 영구 삭제',
+        ],
+        answer: 1,
+      },
+      {
+        question: 'XSS 취약점을 방어하기 위한 올바른 방법은?',
+        options: [
+          '데이터베이스 백업',
+          '관리자 권한 최소화',
+          '사용자 입력값 검증 및 HTML 엔티티 인코딩 적용',
+        ],
+        answer: 2,
+      },
+    ],
   },
   {
     id: 3,
-    field: "web",
-    title: "[CSRF] CSRF(사이트 간 요청 위조) 분석 및 방어",
-    category: "vulnerability",
-    author: "Kim",
-    date: "2026-05-07",
+    field: 'web',
+    title: '[CSRF] CSRF(사이트 간 요청 위조) 분석 및 방어',
+    category: 'vulnerability',
+    author: 'Kim',
+    date: '2026-05-07',
     overview: {
-      title: "1. 개요",
-      description: "CSRF(Cross-Site Request Forgery, 사이트 간 요청 위조)는 특정 웹사이트에 로그인되어 있는 사용자가, 공격자가 유도한 악성 링크나 페이지를 방문함으로써 자신의 의지와 상관없이 특정 요청(수정, 송금, 삭제 등)을 서버에 전송하게 만드는 취약점입니다."
+      title: '1. 개요',
+      description:
+        'CSRF(Cross-Site Request Forgery, 사이트 간 요청 위조)는 특정 웹사이트에 로그인되어 있는 사용자가, 공격자가 유도한 악성 링크나 페이지를 방문함으로써 자신의 의지와 상관없이 특정 요청(수정, 송금, 삭제 등)을 서버에 전송하게 만드는 취약점입니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "로그인된 사용자의 세션 권한을 이용해, 공격자가 의도한 요청(송금, 비밀번호 변경 등)을 서버에 강제로 보내게 만드는 취약점입니다. 공격 원리 예시:",
-      code: "<img src=\"http://bank.com/transfer?to=attacker&amount=10000\" style=\"display:none;\" />"
+      title: '2. 핵심 개념',
+      description:
+        '로그인된 사용자의 세션 권한을 이용해, 공격자가 의도한 요청(송금, 비밀번호 변경 등)을 서버에 강제로 보내게 만드는 취약점입니다. 공격 원리 예시:',
+      code: '<img src="http://bank.com/transfer?to=attacker&amount=10000" style="display:none;" />',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "사용자 권한 오용:", detail: "본인도 모르게 게시글 작성, 회원정보 변경" },
-        { label: "금전적 피해:", detail: "금융 사이트에서의 무단 이체 및 결제 실행" },
-        { label: "계정 탈취:", detail: "이메일이나 비밀번호를 변경하여 계정 점유" }
-      ]
+        {
+          label: '사용자 권한 오용:',
+          detail: '본인도 모르게 게시글 작성, 회원정보 변경',
+        },
+        {
+          label: '금전적 피해:',
+          detail: '금융 사이트에서의 무단 이체 및 결제 실행',
+        },
+        {
+          label: '계정 탈취:',
+          detail: '이메일이나 비밀번호를 변경하여 계정 점유',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "모든 요청에 대해 CSRF Token을 발급하고 유효성 검증",
-        "쿠키 설정 시 SameSite=Lax 또는 Strict 속성을 부여",
-        "주요 작업 수행 시 비밀번호 재입력 또는 2단계 인증 요구"
-      ]
+        '모든 요청에 대해 CSRF Token을 발급하고 유효성 검증',
+        '쿠키 설정 시 SameSite=Lax 또는 Strict 속성을 부여',
+        '주요 작업 수행 시 비밀번호 재입력 또는 2단계 인증 요구',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "NVD - CVE-2025-24358 상세 정보", url: "https://nvd.nist.gov/vuln/detail/CVE-2025-24358" }
-      ]
-    }
+        {
+          name: 'NVD - CVE-2025-24358 상세 정보',
+          url: 'https://nvd.nist.gov/vuln/detail/CVE-2025-24358',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question: 'CSRF 공격의 특징으로 알맞은 것은?',
+        options: [
+          '서버를 해킹해 관리자 권한을 탈취한다.',
+          '사용자의 의지와 무관하게 악의적인 요청을 서버에 전송하게 만든다.',
+          '데이터베이스의 비밀번호를 무차별 대입한다.',
+        ],
+        answer: 1,
+      },
+      {
+        question: 'CSRF 공격이 성공하기 위해 주로 필요한 조건은 무엇인가요?',
+        options: [
+          '희생자가 이미 타깃 웹사이트에 로그인(인증)되어 있어야 한다.',
+          '희생자의 컴퓨터가 바이러스에 감염되어 있어야 한다.',
+          '서버의 방화벽이 꺼져 있어야 한다.',
+        ],
+        answer: 0,
+      },
+      {
+        question: 'CSRF 공격을 방어하기 위해 가장 많이 사용하는 기법은?',
+        options: [
+          '백신 프로그램 설치',
+          'Anti-CSRF 토큰 사용',
+          '비밀번호 길이 제한',
+        ],
+        answer: 1,
+      },
+    ],
   },
   {
     id: 4,
-    field: "cloud", // AWS 관련이므로 cloud 필드로 지정
-    title: "CVE-2025-0693: AWS IAM 사용자 열거 취약점",
-    category: "cve",
-    author: "이제희",
-    date: "2026-04-14",
+    field: 'cloud', // AWS 관련이므로 cloud 필드로 지정
+    title: 'CVE-2025-0693: AWS IAM 사용자 열거 취약점',
+    category: 'cve',
+    author: '이제희',
+    date: '2026-04-14',
     overview: {
-      title: "1. 개요",
-      description: "사용자 이름 열거(User Enumeration) 취약점은 공격자가 시스템 내 유효한 계정을 식별해내는 공격 초기 단계의 취약점이다. 보안 업체 Rhino Security Labs가 AWS 웹 콘솔 침투 테스트 중 발견하였다."
+      title: '1. 개요',
+      description:
+        '사용자 이름 열거(User Enumeration) 취약점은 공격자가 시스템 내 유효한 계정을 식별해내는 공격 초기 단계의 취약점이다. 보안 업체 Rhino Security Labs가 AWS 웹 콘솔 침투 테스트 중 발견하였다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념: 사용자 이름 열거 (MFA 활성화)",
-      description: "IAM 사용자 계정에 MFA(다단계 인증)이 활성화된 경우, 로그인 과정에서 사용자 여부가 노출될 수 있는 문제가 발생한다. 시스템은 해당 사용자의 존재 여부를 확인한 후, 계정이 존재할 경우 MFA 입력 단계로 진행된다. 만약 존재하지 않는 경우 에러 메시지를 반환하고 사용자가 존재하는 경우, 비밀번호 일치 여부와 무관히 다음 페이지에서 MFA 코드 입력이 요구된다. 즉, 공격자는 해당 반응 차이를 통해 IAM 계정명의 실제 존재 여부 확인이 가능해진다.",
-      code: null
+      title: '2. 핵심 개념: 사용자 이름 열거 (MFA 활성화)',
+      description:
+        'IAM 사용자 계정에 MFA(다단계 인증)이 활성화된 경우, 로그인 과정에서 사용자 여부가 노출될 수 있는 문제가 발생한다. 시스템은 해당 사용자의 존재 여부를 확인한 후, 계정이 존재할 경우 MFA 입력 단계로 진행된다. 만약 존재하지 않는 경우 에러 메시지를 반환하고 사용자가 존재하는 경우, 비밀번호 일치 여부와 무관히 다음 페이지에서 MFA 코드 입력이 요구된다. 즉, 공격자는 해당 반응 차이를 통해 IAM 계정명의 실제 존재 여부 확인이 가능해진다.',
+      code: null,
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "유효 계정 수집:", detail: "공격자가 무차별 대입(Brute Force) 공격을 수행할 타깃 계정 확보" },
-        { label: "인프라 정보 노출:", detail: "특정 사내 계정 규칙이나 사용자 이름 체계 파괴 및 유출" }
-      ]
+        {
+          label: '유효 계정 수집:',
+          detail:
+            '공격자가 무차별 대입(Brute Force) 공격을 수행할 타깃 계정 확보',
+        },
+        {
+          label: '인프라 정보 노출:',
+          detail: '특정 사내 계정 규칙이나 사용자 이름 체계 파괴 및 유출',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법: 인증 타이밍 공격 방지",
-      description: "서버가 계정 존재 여부와 무관하게 동일한 시간 동안 동일한 처리를 하도록 설계해야 한다.",
+      title: '4. 방어 방법: 인증 타이밍 공격 방지',
+      description:
+        '서버가 계정 존재 여부와 무관하게 동일한 시간 동안 동일한 처리를 하도록 설계해야 한다.',
       codeList: [
         `IF USER_EXISTS (username) THEN
     password_hash = HASH ( password )
@@ -154,349 +289,660 @@ ENDIF`,
 IS_VALID = LOOKUP_CREDENTIALS_In_STORE ( username , password_hash)
 IF NOT IS_VALID THEN
     RETURN Error ( "잘못된 사용자 이름 또는 암호입니다!" ) 
-ENDIF`
-      ]
+ENDIF`,
+      ],
     },
     referenceLinks: {
-      title: "5. 관련 링크",
+      title: '5. 관련 링크',
       list: [
-        { name: "Rhino Security Labs - AWS Research 상세", url: "https://rhinosecuritylabs.com/research/unauthenticated-username-enumeration-in-aws/" }
-      ]
-    }
+        {
+          name: 'Rhino Security Labs - AWS Research 상세',
+          url: 'https://rhinosecuritylabs.com/research/unauthenticated-username-enumeration-in-aws/',
+        },
+      ],
+    },
   },
   {
     id: 5,
-    field: "System",
-    title: "sudo 원데이 분석 (CVE-2019-14287)",
-    category: "CVE",
-    author: "cucu",
-    date: "2026-05-18",
+    field: 'System',
+    title: 'sudo 원데이 분석 (CVE-2019-14287)',
+    category: 'CVE',
+    author: 'cucu',
+    date: '2026-05-18',
     overview: {
-      title: "1. 개요",
-      description: "Sudo 취약점(CVE-2019-14287)은 -u 옵션의 입력값 검증 미흡을 이용하여 /etc/sudoers 파일의 보안 정책을 우회하고 root 권한을 획득하는 공격입니다."
+      title: '1. 개요',
+      description:
+        'Sudo 취약점(CVE-2019-14287)은 -u 옵션의 입력값 검증 미흡을 이용하여 /etc/sudoers 파일의 보안 정책을 우회하고 root 권한을 획득하는 공격입니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "공격자는 -u 옵션에 UID 값으로 -1 또는 4294967295를 입력합니다.\n시스템은 이 값을 0(root)이 아닌 것으로 판단하여 정책을 통과시킵니다.\n실제 실행 시에는 이를 '권한 변경 없음'으로 해석하여 root(0) 권한으로 명령이 실행됩니다."
+      title: '2. 핵심 개념',
+      description:
+        "공격자는 -u 옵션에 UID 값으로 -1 또는 4294967295를 입력합니다.\n시스템은 이 값을 0(root)이 아닌 것으로 판단하여 정책을 통과시킵니다.\n실제 실행 시에는 이를 '권한 변경 없음'으로 해석하여 root(0) 권한으로 명령이 실행됩니다.",
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "시스템 장악:", detail: "공격자가 시스템의 최고 관리자(root) 권한을 탈취" },
-        { label: "권한 남용:", detail: "중요 파일 무단 삭제, 백도어 설치 등 시스템 전체 장악" }
-      ]
+        {
+          label: '시스템 장악:',
+          detail: '공격자가 시스템의 최고 관리자(root) 권한을 탈취',
+        },
+        {
+          label: '권한 남용:',
+          detail: '중요 파일 무단 삭제, 백도어 설치 등 시스템 전체 장악',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "Sudo 버전을 1.8.28 이후로 업데이트",
-        "UID 입력값에 대한 예외 처리가 포함된 패치 적용"
-      ]
+        'Sudo 버전을 1.8.28 이후로 업데이트',
+        'UID 입력값에 대한 예외 처리가 포함된 패치 적용',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "CVE-2019-14287 분석", url: "https://www.cyberone.kr/news-trends-detail?id=55517&page=1" }
-      ]
-    }
+        {
+          name: 'CVE-2019-14287 분석',
+          url: 'https://www.cyberone.kr/news-trends-detail?id=55517&page=1',
+        },
+      ],
+    },
   },
   {
     id: 6,
-    field: "System",
-    title: "BOF (Buffer OverFlow) 개념 정리",
-    category: "Vulnerability",
-    author: "cucu",
-    date: "2026-06-01",
+    field: 'System',
+    title: 'BOF (Buffer OverFlow) 개념 정리',
+    category: 'Vulnerability',
+    author: 'cucu',
+    date: '2026-06-01',
     overview: {
-      title: "1. 개요",
-      description: "버퍼 오버플로우는 할당된 메모리 범위를 넘어서는 데이터를 입력하여 인접한 영역을 덮어쓰는 취약점입니다."
+      title: '1. 개요',
+      description:
+        '버퍼 오버플로우는 할당된 메모리 범위를 넘어서는 데이터를 입력하여 인접한 영역을 덮어쓰는 취약점입니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "스택은 데이터 저장 방향과 제어 정보의 위치 때문에 오버플로우에 매우 취약한 구조를 가집니다."
+      title: '2. 핵심 개념',
+      description:
+        '스택은 데이터 저장 방향과 제어 정보의 위치 때문에 오버플로우에 매우 취약한 구조를 가집니다.',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "중요 데이터 변조:", detail: "버퍼 뒤의 변수를 덮어써서 프로그램의 로직을 무력화" },
-        { label: "데이터 유출:", detail: "널바이트를 제거하여 메모리 내 민감한 정보를 노출" },
-        { label: "실행 흐름 조작:", detail: "반환 주소(RET)를 변조하여 공격자의 코드를 실행" }
-      ]
+        {
+          label: '중요 데이터 변조:',
+          detail: '버퍼 뒤의 변수를 덮어써서 프로그램의 로직을 무력화',
+        },
+        {
+          label: '데이터 유출:',
+          detail: '널바이트를 제거하여 메모리 내 민감한 정보를 노출',
+        },
+        {
+          label: '실행 흐름 조작:',
+          detail: '반환 주소(RET)를 변조하여 공격자의 코드를 실행',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "strncpy, fgets 등 안전한 함수 사용",
-        "스택 카나리 적용",
-        "NX/DEP 방어 기법 적용"
-      ]
+        'strncpy, fgets 등 안전한 함수 사용',
+        '스택 카나리 적용',
+        'NX/DEP 방어 기법 적용',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "Cloudflare: Buffer Overflow 학습", url: "https://www.cloudflare.com/ko-kr/learning/security/threats/buffer-overflow/" }
-      ]
-    }
+        {
+          name: 'Cloudflare: Buffer Overflow 학습',
+          url: 'https://www.cloudflare.com/ko-kr/learning/security/threats/buffer-overflow/',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question: '버퍼 오버플로우 취약점이 발생하는 원인은 무엇인가요?',
+        options: [
+          '메모리 공간이 너무 커서',
+          'CPU 속도가 너무 빨라서',
+          '할당된 메모리 버퍼보다 더 큰 데이터를 입력받을 때',
+        ],
+        answer: 2,
+      },
+      {
+        question:
+          '버퍼 오버플로우를 통해 공격자가 프로그램의 실행 흐름을 바꾸기 위해 주로 변조하는 것은?',
+        options: [
+          '하드디스크 파티션',
+          '반환 주소 (Return Address, RET)',
+          '그래픽 카드 메모리',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          '버퍼 오버플로우 취약점을 방어하기 위한 가장 기본적인 코딩 습관은?',
+        options: [
+          '입력 데이터의 길이를 엄격하게 검사한다.',
+          '프로그램 소스 코드를 비공개로 유지한다.',
+          '모든 변수를 전역 변수로 선언한다.',
+        ],
+        answer: 0,
+      },
+    ],
   },
   {
     id: 7,
-    field: "System",
-    title: "ROP (Return Oriented Programming)",
-    category: "Vulnerability",
-    author: "cucu",
-    date: "2026-06-03",
+    field: 'System',
+    title: 'ROP (Return Oriented Programming)',
+    category: 'Vulnerability',
+    author: 'cucu',
+    date: '2026-06-03',
     overview: {
-      title: "1. 개요",
-      description: "기존 코드 조각을 이용한 공격 기법"
+      title: '1. 개요',
+      description: '기존 코드 조각을 이용한 공격 기법',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "리턴 가젯: ret 명령어로 끝나는 코드 조각들을 체인처럼 연결.\nPLT / GOT: 라이브러리 함수의 실제 주소를 알아내거나 변조.\n라이브러리 OFFSET: 함수 간의 상대적 거리가 고정된 점을 이용."
+      title: '2. 핵심 개념',
+      description:
+        '리턴 가젯: ret 명령어로 끝나는 코드 조각들을 체인처럼 연결.\nPLT / GOT: 라이브러리 함수의 실제 주소를 알아내거나 변조.\n라이브러리 OFFSET: 함수 간의 상대적 거리가 고정된 점을 이용.',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "방어 우회:", detail: "NX/DEP 환경을 우회하여 코드 실행" },
-        { label: "임의 코드 실행:", detail: "기존 코드를 재조합하여 원격 코드 실행(RCE) 및 쉘 획득" }
-      ]
+        { label: '방어 우회:', detail: 'NX/DEP 환경을 우회하여 코드 실행' },
+        {
+          label: '임의 코드 실행:',
+          detail: '기존 코드를 재조합하여 원격 코드 실행(RCE) 및 쉘 획득',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
-      list: [
-        "ASLR 적용",
-        "PIE 기법 적용"
-      ]
+      title: '4. 방어 방법',
+      list: ['ASLR 적용', 'PIE 기법 적용'],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "Wikipedia: Return-oriented programming", url: "https://en.wikipedia.org/wiki/Return-oriented_programming" }
-      ]
-    }
+        {
+          name: 'Wikipedia: Return-oriented programming',
+          url: 'https://en.wikipedia.org/wiki/Return-oriented_programming',
+        },
+      ],
+    },
+
+    quiz: [
+      {
+        question:
+          'ROP(Return-Oriented Programming) 공격의 주된 목적은 무엇인가요?',
+        options: [
+          '웹 서버 과부하 유발',
+          '실행 권한이 없는 메모리 영역(NX/DEP) 보안 기법을 우회하여 코드를 실행하기 위해',
+          '데이터베이스의 암호를 무차별 대입하기 위해',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          "ROP 공격을 구성하는 핵심 요소로, 주로 'ret' (return) 명령어로 끝나는 짧은 기계어 코드 조각을 무엇이라고 부르나요?",
+        options: ['가젯 (Gadget)', '쿠키 (Cookie)', '토큰 (Token)'],
+        answer: 0,
+      },
+      {
+        question:
+          'ROP 공격이 성공하기 위해 주로 변조하여 악용하는 것은 무엇인가요?',
+        options: [
+          '하드디스크의 파티션 테이블',
+          '함수의 반환 주소 (Return Address)',
+          '웹 브라우저의 방문 기록',
+        ],
+        answer: 1,
+      },
+    ],
   },
   {
     id: 8,
-    field: "System",
-    title: "PIE (Position-Independent Executable)",
-    category: "Security",
-    author: "cucu",
-    date: "2026-06-03",
+    field: 'System',
+    title: 'PIE (Position-Independent Executable)',
+    category: 'Security',
+    author: 'cucu',
+    date: '2026-06-03',
     overview: {
-      title: "1. 개요",
-      description: "코드 영역까지 무작위 주소에 배치하여 실행 파일의 위치를 예측할 수 없게 만드는 보안 기술입니다."
+      title: '1. 개요',
+      description:
+        '코드 영역까지 무작위 주소에 배치하여 실행 파일의 위치를 예측할 수 없게 만드는 보안 기술입니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "작동 원리: PIC 기반의 상대 참조 방식 사용.\nASLR과의 비교: ASLR은 스택/힙/라이브러리만, PIE는 코드 영역까지 포함하여 무작위화."
+      title: '2. 핵심 개념',
+      description:
+        '작동 원리: PIC 기반의 상대 참조 방식 사용.\nASLR과의 비교: ASLR은 스택/힙/라이브러리만, PIE는 코드 영역까지 포함하여 무작위화.',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "가젯 노출:", detail: "PIE 미적용 시 코드 영역 주소가 고정되어 ROP 공격 용이" }
-      ]
+        {
+          label: '가젯 노출:',
+          detail: 'PIE 미적용 시 코드 영역 주소가 고정되어 ROP 공격 용이',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
-      list: [
-        "개발 및 빌드 단계에서 컴파일러 옵션 활성화"
-      ]
+      title: '4. 방어 방법',
+      list: ['개발 및 빌드 단계에서 컴파일러 옵션 활성화'],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "RedHat: PIE 블로그", url: "https://www.redhat.com/en/blog/position-independent-executables-pie" }
-      ]
-    }
+        {
+          name: 'RedHat: PIE 블로그',
+          url: 'https://www.redhat.com/en/blog/position-independent-executables-pie',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question: '보안 기법인 PIE는 무엇의 약자인가요?',
+        options: [
+          'Program Interface Engine',
+          'Position-Independent Executable (위치 독립 실행 파일)',
+          'Private Information Extractor',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          'PIE 기법이 적용된 프로그램의 주요 특징과 보안상 이점은 무엇인가요?',
+        options: [
+          '실행 파일이 메모리에 적재될 때마다 주소가 무작위로 바뀌어 ROP 등 코드 재사용 공격을 어렵게 한다.',
+          '프로그램의 실행 속도를 10배 이상 빠르게 만들어 준다.',
+          '백신 프로그램의 탐지를 피하게 해준다.',
+        ],
+        answer: 0,
+      },
+      {
+        question:
+          'PIE는 운영체제의 어떤 메모리 보호 기법과 함께 사용되어야 효과가 극대화되나요?',
+        options: [
+          'SQL 인젝션 필터링',
+          'ASLR (주소 공간 배열 무작위화)',
+          '클라우드 스토리지 암호화',
+        ],
+        answer: 1,
+      },
+    ],
   },
   {
     id: 9,
-    field: "cloud",
-    title: "클라우드 권한 과잉 및 IAM 정책 분석",
-    category: "vulnerability",
-    author: "Kim",
-    date: "2026-05-02",
+    field: 'cloud',
+    title: '클라우드 권한 과잉 및 IAM 정책 분석',
+    category: 'vulnerability',
+    author: 'Kim',
+    date: '2026-05-02',
     overview: {
-      title: "1. 개요",
-      description: "클라우드 IAM(Identity and Access Management)에서 최소 권한 원칙이 지켜지지 않아, 사용자가 업무에 필요한 것보다 훨씬 더 넓은 권한을 가지게 되는 취약점입니다."
+      title: '1. 개요',
+      description:
+        '클라우드 IAM(Identity and Access Management)에서 최소 권한 원칙이 지켜지지 않아, 사용자가 업무에 필요한 것보다 훨씬 더 넓은 권한을 가지게 되는 취약점입니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "클라우드 서비스 도입 초기, 편의를 위해 'AdministratorAccess' 권한을 사용자에게 부여하는 경우가 많습니다. 이는 계정 탈취 시 클라우드 전체 자원이 공격자에게 노출되는 치명적인 결과로 이어집니다.",
-      code: "Effect: Allow, Action: *, Resource: *"
+      title: '2. 핵심 개념',
+      description:
+        "클라우드 서비스 도입 초기, 편의를 위해 'AdministratorAccess' 권한을 사용자에게 부여하는 경우가 많습니다. 이는 계정 탈취 시 클라우드 전체 자원이 공격자에게 노출되는 치명적인 결과로 이어집니다.",
+      code: 'Effect: Allow, Action: *, Resource: *',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "데이터 유출:", detail: "클라우드 스토리지(S3 등)의 모든 데이터 접근 가능" },
-        { label: "인프라 제어:", detail: "가상 머신 인스턴스 중지 및 삭제로 인한 서비스 가용성 파괴" },
-        { label: "비용 폭탄:", detail: "공격자에 의한 채굴 서버 배포로 인한 클라우드 사용료 급증" }
-      ]
+        {
+          label: '데이터 유출:',
+          detail: '클라우드 스토리지(S3 등)의 모든 데이터 접근 가능',
+        },
+        {
+          label: '인프라 제어:',
+          detail: '가상 머신 인스턴스 중지 및 삭제로 인한 서비스 가용성 파괴',
+        },
+        {
+          label: '비용 폭탄:',
+          detail: '공격자에 의한 채굴 서버 배포로 인한 클라우드 사용료 급증',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "최소 권한의 원칙(Least Privilege) 적용 및 정기적인 권한 검토",
-        "IAM Access Analyzer를 활용한 미사용 권한 식별",
-        "다중 인증(MFA) 강제 적용"
-      ]
+        '최소 권한의 원칙(Least Privilege) 적용 및 정기적인 권한 검토',
+        'IAM Access Analyzer를 활용한 미사용 권한 식별',
+        '다중 인증(MFA) 강제 적용',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "AWS IAM 보안 모범 사례", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" }
-      ]
-    }
+        {
+          name: 'AWS IAM 보안 모범 사례',
+          url: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question:
+          'IAM 사용자나 역할에 권한을 부여할 때 지켜야 하는 가장 중요한 보안 원칙은?',
+        options: [
+          '최소 권한의 원칙 (Principle of Least Privilege)',
+          '최대 권한 부여의 원칙',
+          '모든 사용자 동일 권한 원칙',
+        ],
+        answer: 0,
+      },
+      {
+        question: '다음 중 가장 위험하게 설정된 IAM 정책은 무엇인가요?',
+        options: [
+          '특정 S3 버킷에만 읽기 권한(s3:GetObject) 부여',
+          '모든 리소스에 대해 모든 관리자 작업 허용 (Action: "*", Resource: "*")',
+          '비밀번호 변경 시 다중 인증(MFA) 요구',
+        ],
+        answer: 1,
+      },
+      {
+        question: '권한 과잉 문제를 해결하고 예방하기 위한 적절한 조치는?',
+        options: [
+          '정기적으로 권한 분석 도구를 사용하여 안 쓰는 권한을 식별하고 회수한다.',
+          '모든 사용자의 계정 비밀번호를 동일하게 맞춘다.',
+          '보안 검토를 피하기 위해 보안 그룹을 모두 삭제한다.',
+        ],
+        answer: 0,
+      },
+    ],
   },
   {
     id: 10,
-    field: "cloud",
-    title: "클라우드 스토리지 공개 노출 위험성",
-    category: "vulnerability",
-    author: "Kim",
-    date: "2026-05-17",
+    field: 'cloud',
+    title: '클라우드 스토리지 공개 노출 위험성',
+    category: 'vulnerability',
+    author: 'Kim',
+    date: '2026-05-17',
     overview: {
-      title: "1. 개요",
-      description: "AWS S3 버킷이나 Azure Blob Storage와 같은 클라우드 스토리지 설정 미흡으로 인해, 내부 정보가 외부 인터넷에 누구나 접근 가능하게 설정된 상태를 말합니다."
+      title: '1. 개요',
+      description:
+        'AWS S3 버킷이나 Azure Blob Storage와 같은 클라우드 스토리지 설정 미흡으로 인해, 내부 정보가 외부 인터넷에 누구나 접근 가능하게 설정된 상태를 말합니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "스토리지 생성 시 기본적으로 '비공개'가 아닌 '공개'로 설정하거나, 정책 작성 실수로 인해 인증되지 않은 외부 사용자가 버킷 내 파일을 조회/다운로드할 수 있게 됩니다.",
-      code: "Bucket Policy: 'Effect': 'Allow', 'Principal': '*' "
+      title: '2. 핵심 개념',
+      description:
+        "스토리지 생성 시 기본적으로 '비공개'가 아닌 '공개'로 설정하거나, 정책 작성 실수로 인해 인증되지 않은 외부 사용자가 버킷 내 파일을 조회/다운로드할 수 있게 됩니다.",
+      code: "Bucket Policy: 'Effect': 'Allow', 'Principal': '*' ",
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "민감 정보 노출:", detail: "고객 개인정보, DB 백업 파일, 소스코드 유출" },
-        { label: "랜섬웨어:", detail: "데이터를 암호화하거나 삭제하여 복구 요구" }
-      ]
+        {
+          label: '민감 정보 노출:',
+          detail: '고객 개인정보, DB 백업 파일, 소스코드 유출',
+        },
+        {
+          label: '랜섬웨어:',
+          detail: '데이터를 암호화하거나 삭제하여 복구 요구',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "스토리지 블록 퍼블릭 액세스(Block Public Access) 설정 활성화",
-        "정기적인 스토리지 구성 스캔 및 노출 점검",
-        "데이터 암호화(Encryption) 적용"
-      ]
+        '스토리지 블록 퍼블릭 액세스(Block Public Access) 설정 활성화',
+        '정기적인 스토리지 구성 스캔 및 노출 점검',
+        '데이터 암호화(Encryption) 적용',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "S3 버킷 퍼블릭 액세스 차단 가이드", url: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html" }
-      ]
-    }
+        {
+          name: 'S3 버킷 퍼블릭 액세스 차단 가이드',
+          url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question:
+          '클라우드 스토리지(예: AWS S3) 데이터 유출 사고의 가장 흔한 원인은 무엇인가요?',
+        options: [
+          '너무 강력한 암호화 알고리즘 사용',
+          '스토리지 버킷의 퍼블릭(Public) 접근 권한 설정 오류',
+          '스토리지 저장 용량 초과',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          '공개로 노출된 클라우드 스토리지에 저장되었을 때 가장 치명적인 피해를 입을 수 있는 데이터는?',
+        options: [
+          '공개용 오픈소스 코드',
+          '사용자의 개인정보 및 시스템 접근 키(Access Key)',
+          '일반적인 홍보용 이미지',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          '클라우드 스토리지 노출을 방어하기 위한 올바른 방법은 무엇인가요?',
+        options: [
+          "'퍼블릭 액세스 차단' 기능을 활성화하고 엄격한 IAM 정책을 적용한다.",
+          '모든 사용자가 자유롭게 파일을 올릴 수 있도록 쓰기 권한을 열어둔다.',
+          '클라우드 서버의 전원을 차단한다.',
+        ],
+        answer: 0,
+      },
+    ],
   },
   {
     id: 11,
-    field: "cloud",
-    title: "클라우드 보안의 핵심: 공동 책임 모델",
-    category: "security",
-    author: "Kim",
-    date: "2026-05-29",
+    field: 'cloud',
+    title: '클라우드 보안의 핵심: 공동 책임 모델',
+    category: 'security',
+    author: 'Kim',
+    date: '2026-05-29',
     overview: {
-      title: "1. 개요",
-      description: "클라우드 보안은 CSP(Cloud Service Provider)와 고객사가 함께 책임져야 한다는 개념입니다. 어디까지가 누구의 책임인지 이해하는 것이 가장 기본입니다."
+      title: '1. 개요',
+      description:
+        '클라우드 보안은 CSP(Cloud Service Provider)와 고객사가 함께 책임져야 한다는 개념입니다. 어디까지가 누구의 책임인지 이해하는 것이 가장 기본입니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "CSP는 클라우드 자체(인프라)를 보호하고, 고객은 클라우드 내부(데이터, 설정, 애플리케이션)를 보호해야 합니다.",
-      code: "Security OF the Cloud (CSP) vs Security IN the Cloud (Customer)"
+      title: '2. 핵심 개념',
+      description:
+        'CSP는 클라우드 자체(인프라)를 보호하고, 고객은 클라우드 내부(데이터, 설정, 애플리케이션)를 보호해야 합니다.',
+      code: 'Security OF the Cloud (CSP) vs Security IN the Cloud (Customer)',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "책임 공백:", detail: "누구의 책임인지 모르는 상태에서 보안 사고 발생" },
-        { label: "설정 오류:", detail: "고객 책임 영역인 설정(설정 미흡)으로 인한 대형 사고" }
-      ]
+        {
+          label: '책임 공백:',
+          detail: '누구의 책임인지 모르는 상태에서 보안 사고 발생',
+        },
+        {
+          label: '설정 오류:',
+          detail: '고객 책임 영역인 설정(설정 미흡)으로 인한 대형 사고',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "CSP가 제공하는 보안 가이드라인 준수",
-        "클라우드 보안 형상 관리(CSPM) 도구 도입",
-        "보안 정책에 대한 정기적인 교육 및 감사"
-      ]
+        'CSP가 제공하는 보안 가이드라인 준수',
+        '클라우드 보안 형상 관리(CSPM) 도구 도입',
+        '보안 정책에 대한 정기적인 교육 및 감사',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "클라우드 공유 책임 모델 이해", url: "https://aws.amazon.com/ko/compliance/shared-responsibility-model/" }
-      ]
-    }
+        {
+          name: '클라우드 공유 책임 모델 이해',
+          url: 'https://aws.amazon.com/ko/compliance/shared-responsibility-model/',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question: '클라우드 보안 공동책임모델이 의미하는 바는 무엇인가요?',
+        options: [
+          '모든 보안 책임은 클라우드 제공자(CSP)에게 있다.',
+          '클라우드 제공자(CSP)와 고객이 보안 영역별로 책임을 나누어 가진다.',
+          '모든 보안 책임은 서비스를 이용하는 고객에게 있다.',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          "IaaS(인프라 서비스) 환경에서 일반적으로 '고객'이 직접 책임져야 하는 보안 영역은?",
+        options: [
+          '물리적 데이터 센터 출입 통제',
+          '서버 하드웨어 교체',
+          '운영체제(OS) 취약점 패치 및 애플리케이션 보안',
+        ],
+        answer: 2,
+      },
+      {
+        question: '클라우드 제공자(CSP)가 전적으로 책임지는 영역은 무엇인가요?',
+        options: [
+          '고객이 작성한 소스 코드의 취약점',
+          '데이터 센터의 물리적 보안 및 네트워킹 인프라 유지보수',
+          '고객의 사내 네트워크 암호 주기적 변경',
+        ],
+        answer: 1,
+      },
+    ],
   },
   {
     id: 12,
-    field: "cloud",
-    title: "클라우드 메타데이터 서비스(IMDSv1) 취약점",
-    category: "vulnerability",
-    author: "Kim",
-    date: "2026-06-01",
+    field: 'cloud',
+    title: '클라우드 메타데이터 서비스(IMDSv1) 취약점',
+    category: 'vulnerability',
+    author: 'Kim',
+    date: '2026-06-01',
     overview: {
-      title: "1. 개요",
-      description: "인스턴스 메타데이터 서비스(IMDS)의 이전 버전(v1)을 사용할 때, SSRF(Server-Side Request Forgery) 취약점을 통해 인스턴스에 할당된 임시 보안 자격 증명을 탈취할 수 있는 취약점입니다."
+      title: '1. 개요',
+      description:
+        '인스턴스 메타데이터 서비스(IMDS)의 이전 버전(v1)을 사용할 때, SSRF(Server-Side Request Forgery) 취약점을 통해 인스턴스에 할당된 임시 보안 자격 증명을 탈취할 수 있는 취약점입니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "클라우드 내부 서비스는 169.254.169.254 주소를 통해 환경 정보를 가져옵니다. 공격자가 웹 애플리케이션의 SSRF를 이용해 이 주소로 요청을 보내면, 민감한 IAM 인증 정보를 탈취할 수 있습니다.",
-      code: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+      title: '2. 핵심 개념',
+      description:
+        '클라우드 내부 서비스는 169.254.169.254 주소를 통해 환경 정보를 가져옵니다. 공격자가 웹 애플리케이션의 SSRF를 이용해 이 주소로 요청을 보내면, 민감한 IAM 인증 정보를 탈취할 수 있습니다.',
+      code: 'curl http://169.254.169.254/latest/meta-data/iam/security-credentials/',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "권한 상승:", detail: "인스턴스에 부여된 IAM 역할 권한을 공격자가 그대로 사용" },
-        { label: "데이터 노출:", detail: "탈취한 권한으로 클라우드 스토리지 등 자원 전반에 접근" }
-      ]
+        {
+          label: '권한 상승:',
+          detail: '인스턴스에 부여된 IAM 역할 권한을 공격자가 그대로 사용',
+        },
+        {
+          label: '데이터 노출:',
+          detail: '탈취한 권한으로 클라우드 스토리지 등 자원 전반에 접근',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "IMDSv2(세션 기반 인증)로 업그레이드 및 필수 적용",
-        "IMDS 접근을 제한하는 네트워크 정책(Security Group/NACL) 설정",
-        "SSRF 취약점 근본 제거"
-      ]
+        'IMDSv2(세션 기반 인증)로 업그레이드 및 필수 적용',
+        'IMDS 접근을 제한하는 네트워크 정책(Security Group/NACL) 설정',
+        'SSRF 취약점 근본 제거',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "AWS IMDSv2 사용 권장 문서", url: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html" }
-      ]
-    }
+        {
+          name: 'AWS IMDSv2 사용 권장 문서',
+          url: 'https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html',
+        },
+      ],
+    },
+    quiz: [
+      {
+        question:
+          'IMDSv1(인스턴스 메타데이터 서비스)의 가장 큰 보안상 약점은 무엇인가요?',
+        options: [
+          '복잡한 암호화가 필요하다.',
+          '별도의 인증 헤더나 토큰 없이 IP 주소 접근만으로 정보를 탈취할 수 있다.',
+          '데이터베이스를 자동으로 삭제한다.',
+        ],
+        answer: 1,
+      },
+      {
+        question:
+          '공격자가 외부에서 IMDSv1에 접근하여 클라우드 자격 증명을 탈취하기 위해 주로 연계하는 웹 취약점은?',
+        options: [
+          'SSRF (서버 측 요청 위조)',
+          'XSS (크로스 사이트 스크립팅)',
+          'SQL 인젝션',
+        ],
+        answer: 0,
+      },
+      {
+        question:
+          'IMDS 취약점을 방어하기 위한 가장 근본적이고 권장되는 조치는 무엇인가요?',
+        options: [
+          'HTTP 대신 HTTPS를 사용한다.',
+          '메타데이터 IP를 외부에 공개한다.',
+          '세션 토큰 인증이 필수적인 IMDSv2로 업그레이드 및 적용한다.',
+        ],
+        answer: 2,
+      },
+    ],
   },
   {
     id: 13,
-    field: "cloud",
-    title: "CVE-2026-5544: 쿠버네티스 대시보드 RCE 취약점",
-    category: "cve",
-    author: "Kim",
-    date: "2026-06-02",
+    field: 'cloud',
+    title: 'CVE-2026-5544: 쿠버네티스 대시보드 RCE 취약점',
+    category: 'cve',
+    author: 'Kim',
+    date: '2026-06-02',
     overview: {
-      title: "1. 개요",
-      description: "쿠버네티스(Kubernetes) 대시보드 컴포넌트에서 발견된 원격 코드 실행 취약점입니다. 공격자가 조작된 요청을 보내 API 서버를 통해 컨테이너 내부에서 임의 명령어를 실행할 수 있습니다."
+      title: '1. 개요',
+      description:
+        '쿠버네티스(Kubernetes) 대시보드 컴포넌트에서 발견된 원격 코드 실행 취약점입니다. 공격자가 조작된 요청을 보내 API 서버를 통해 컨테이너 내부에서 임의 명령어를 실행할 수 있습니다.',
     },
     coreConcept: {
-      title: "2. 핵심 개념",
-      description: "대시보드의 특정 API 엔드포인트가 인증이 미흡한 상태로 노출될 때 발생합니다. 공격자는 이를 통해 클러스터 내 다른 파드(Pod)까지 권한을 확대할 수 있습니다.",
-      code: "POST /api/v1/namespaces/{ns}/pods/{pod}/exec?command=sh&..."
+      title: '2. 핵심 개념',
+      description:
+        '대시보드의 특정 API 엔드포인트가 인증이 미흡한 상태로 노출될 때 발생합니다. 공격자는 이를 통해 클러스터 내 다른 파드(Pod)까지 권한을 확대할 수 있습니다.',
+      code: 'POST /api/v1/namespaces/{ns}/pods/{pod}/exec?command=sh&...',
     },
     damageTypes: {
-      title: "3. 주요 피해 유형",
+      title: '3. 주요 피해 유형',
       list: [
-        { label: "클러스터 장악:", detail: "쿠버네티스 노드 전체에 대한 명령어 실행 권한 획득" },
-        { label: "자원 탈취:", detail: "컨테이너 내 환경 변수(Secret) 추출로 DB 계정 정보 유출" }
-      ]
+        {
+          label: '클러스터 장악:',
+          detail: '쿠버네티스 노드 전체에 대한 명령어 실행 권한 획득',
+        },
+        {
+          label: '자원 탈취:',
+          detail: '컨테이너 내 환경 변수(Secret) 추출로 DB 계정 정보 유출',
+        },
+      ],
     },
     defenses: {
-      title: "4. 방어 방법",
+      title: '4. 방어 방법',
       list: [
-        "쿠버네티스 대시보드 보안 업데이트(버전 2.x 이상 권장)",
-        "RBAC(Role-Based Access Control)을 엄격하게 적용하여 권한 최소화",
-        "대시보드를 외부에 직접 노출하지 않고 내부망에서만 접근 허용"
-      ]
+        '쿠버네티스 대시보드 보안 업데이트(버전 2.x 이상 권장)',
+        'RBAC(Role-Based Access Control)을 엄격하게 적용하여 권한 최소화',
+        '대시보드를 외부에 직접 노출하지 않고 내부망에서만 접근 허용',
+      ],
     },
     referenceLinks: {
-      title: "5. 링크",
+      title: '5. 링크',
       list: [
-        { name: "Kubernetes 보안 공고", url: "https://kubernetes.io/docs/concepts/security/" }
-      ]
-    }
-  }
+        {
+          name: 'Kubernetes 보안 공고',
+          url: 'https://kubernetes.io/docs/concepts/security/',
+        },
+      ],
+    },
+  },
 ];
