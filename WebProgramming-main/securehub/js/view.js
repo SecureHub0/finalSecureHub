@@ -205,17 +205,11 @@ function renderPostDetail() {
 
       defenseDescEl.style.whiteSpace = 'pre-line'; //줄바꿈 보존
       defenseDescEl.style.marginBottom = '15px'; //여백 설정
-<<<<<<< HEAD
-      
-      //제목 바로 아래에 삽입(.after)
-=======
 
       // 제목 바로 아래에 삽입(.after)
->>>>>>> e55d29f4ee62a3f6d782b0b5c460a11374f85217
       document.getElementById('defensesTitle').after(defenseDescEl);
     }
 
-<<<<<<< HEAD
     //post(2번에서 정의) 객체 내 codeList 순회
     if (post.defenses.codeList && post.defenses.codeList.length > 0) {
       // .after 특성 상 배열 순서를 역순으로 뒤집으므로, reverse 사용
@@ -238,7 +232,6 @@ function renderPostDetail() {
     secDefenses.style.display = 'block'; //화면 출력
   } else {
     secDefenses.style.display = 'none'; //postData.js에 데이터가 없는 섹션은 숨김 처리
-=======
       // post(2번에서 정의) 객체 내 postList 순회
       if (post.defenses.codeList && post.defenses.codeList.length > 0) {
         // .after 특성 상 배열 순서를 역순으로 뒤집으므로, reverse 사용
@@ -257,7 +250,6 @@ function renderPostDetail() {
         });
       }
     }
->>>>>>> e55d29f4ee62a3f6d782b0b5c460a11374f85217
   }
 
   //3-5. 링크 섹션
@@ -298,7 +290,6 @@ function renderPostDetail() {
     secReferences.style.display = 'none'; //psotData.js에 없는 섹션은 숨김 처리
   }
   renderQuiz(post);
-}
 
 //화면 출력
 window.addEventListener('DOMContentLoaded', renderPostDetail);
