@@ -169,10 +169,19 @@ function renderPostDetail() {
     //이전 설명박스, 코드박스 초기화
     document.querySelectorAll('.dynamic-box').forEach(el => el.remove());
 
-    // post(2번에서 정의) 객체 내 description이 존재한다면
+    //리스트 데이터가 있으면 렌더링
+    if (post.defenses.list && post.defenses.list.length > 0) {
+      post.defenses.list.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        listContainer.appendChild(li);
+      });
+    }
+
+    //post(2번에서 정의) 객체 내 description이 존재한다면
     if (post.defenses.description) {
       const defenseDescEl = document.createElement('p'); //<p> 생성
-      defenseDescEl.className = 'dynamic-box'; //코드 초기화를 위해 클래스(.dynamic-box) 부여 (위 4줄 참고)
+      defenseDescEl.className = 'dynamic-box'; //코드 초기화를 위해 클래스(.dynamic-box) 부여
       //psotData.js 에서 descrtiption 변수 정의
       let rawDesc = post.defenses.description;
       defenseDescEl.innerHTML = rawDesc; //화면 출력
@@ -180,27 +189,32 @@ function renderPostDetail() {
       defenseDescEl.style.whiteSpace = 'pre-line'; //줄바꿈 보존
       defenseDescEl.style.marginBottom = '15px'; //여백 설정
       
-      // 제목 바로 아래에 삽입(.after)
+      //제목 바로 아래에 삽입(.after)
       document.getElementById('defensesTitle').after(defenseDescEl);
+    }
 
-      // post(2번에서 정의) 객체 내 postList 순회
-      if (post.defenses.codeList && post.defenses.codeList.length > 0) {
-        // .after 특성 상 배열 순서를 역순으로 뒤집으므로, reverse 사용
-        [...post.defenses.codeList].reverse().forEach(codeText => {
-          const pre = document.createElement('pre'); //<pre> 생성    
-          const code = document.createElement('code'); //<code> 생성
-          
-          pre.className = 'dynamic-box code-box-style'; //view.css 적용
-          code.className = 'code-text-style'; //view.css 적용
-          
-          //XSS 예제 코드 대비, 단순 문장려 전환(textContent)
-          code.textContent = codeText; 
-          
-          pre.appendChild(code); //<pre> 내 <code> 삽입
-          defenseDescEl.after(pre); //글 바로 아래에 삽입(.after)
-        });
-      }
-    } 
+    //post(2번에서 정의) 객체 내 codeList 순회
+    if (post.defenses.codeList && post.defenses.codeList.length > 0) {
+      // .after 특성 상 배열 순서를 역순으로 뒤집으므로, reverse 사용
+      [...post.defenses.codeList].reverse().forEach(codeText => {
+        const pre = document.createElement('pre'); //<pre> 생성    
+        const code = document.createElement('code'); //<code> 생성
+        
+        pre.className = 'dynamic-box code-box-style'; //view.css 적용
+        code.className = 'code-text-style'; //view.css 적용
+        
+        //XSS 예제 코드 대비, 단순 문장려 전환(textContent)
+        code.textContent = codeText; 
+        
+        pre.appendChild(code); //<pre> 내 <code> 삽입
+        // 가장 마지막에 생성된 .dynamic-box 바로 뒤에 삽입
+        const lastDynamic = document.querySelector('.dynamic-box:last-of-type');
+        lastDynamic.after(pre); 
+      });
+    }
+    secDefenses.style.display = 'block'; //화면 출력
+  } else {
+    secDefenses.style.display = 'none'; //postData.js에 데이터가 없는 섹션은 숨김 처리
   }
 
   //3-5. 링크 섹션
