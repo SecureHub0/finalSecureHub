@@ -309,9 +309,9 @@ ENDIF`
     }
   },
   {
-    id: 8,
+    id: 9,
     field: "cloud",
-    title: "[Cloud] 클라우드 권한 과잉 및 IAM 정책 분석",
+    title: "클라우드 권한 과잉 및 IAM 정책 분석",
     category: "vulnerability",
     author: "Kim",
     date: "2026-05-02",
@@ -348,7 +348,7 @@ ENDIF`
     }
   },
   {
-    id: 9,
+    id: 10,
     field: "cloud",
     title: "클라우드 스토리지 공개 노출 위험성",
     category: "vulnerability",
@@ -386,7 +386,7 @@ ENDIF`
     }
   },
   {
-    id: 10,
+    id: 11,
     field: "cloud",
     title: "클라우드 보안의 핵심: 공동 책임 모델",
     category: "security",
@@ -424,7 +424,7 @@ ENDIF`
     }
   },
   {
-    id: 11,
+    id: 12,
     field: "cloud",
     title: "클라우드 메타데이터 서비스(IMDSv1) 취약점",
     category: "vulnerability",
@@ -462,7 +462,7 @@ ENDIF`
     }
   },
   {
-    id: 12,
+    id: 13,
     field: "cloud",
     title: "CVE-2026-5544: 쿠버네티스 대시보드 RCE 취약점",
     category: "cve",
