@@ -4,19 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Security Community – Team 소개</title>
-    
+
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    
+
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    
+
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/about.css" />
   </head>
   <body>
-    
     <header>
       <a class="logo" href="index.html">Security<span>Community</span></a>
       <div class="header-crumb">
@@ -27,30 +26,45 @@
       </div>
     </header>
 
+    <div class="ticker-wrapper">
+      <div class="ticker-title">실시간 보안 동향</div>
+      <div class="ticker-rail" id="tickerRail">보안 피드 로딩 중...</div>
+    </div>
+
     <div class="view-wrapper">
       <div class="about-container">
-        
         <section class="about-header">
           <h1>Team Security Community</h1>
           <p>보안 취약점 분석 프로젝트를 함께 수행한 팀원들을 소개합니다.</p>
         </section>
 
         <div class="member-grid">
-          
           <div class="member-card">
             <img class="member-photo" src="img/user.png" alt="김민재 프로필" />
             <h3>김민재</h3>
             <p class="member-univ">중부대학교</p>
             <p class="member-role">Web Security</p>
-            
+
             <div class="member-links">
-              <a href="https://github.com/minjae0202" target="_blank" class="btn">
+              <a
+                href="https://github.com/minjae0202"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="github"></i> GitHub
               </a>
-              <a href="https://my-portfolio2-sable-eight.vercel.app/" target="_blank" class="btn">
+              <a
+                href="https://my-portfolio2-sable-eight.vercel.app/"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="globe"></i> Portfolio
               </a>
-              <a href="https://blog.naver.com/minjaemando" target="_blank" class="btn">
+              <a
+                href="https://blog.naver.com/minjaemando"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="book-open"></i> Blog
               </a>
             </div>
@@ -61,15 +75,27 @@
             <h3>이효정</h3>
             <p class="member-univ">중부대학교</p>
             <p class="member-role">System Security</p>
-            
+
             <div class="member-links">
-              <a href="https://github.com/cucu-ground" target="_blank" class="btn">
+              <a
+                href="https://github.com/cucu-ground"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="github"></i> GitHub
               </a>
-              <a href="https://portfolio-ten-tau-ngfazky4jo.vercel.app/" target="_blank" class="btn">
+              <a
+                href="https://portfolio-ten-tau-ngfazky4jo.vercel.app/"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="globe"></i> Portfolio
               </a>
-              <a href="https://cucu0417.tistory.com/" target="_blank" class="btn">
+              <a
+                href="https://cucu0417.tistory.com/"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="book-open"></i> Blog
               </a>
             </div>
@@ -80,22 +106,33 @@
             <h3>이제희</h3>
             <p class="member-univ">중부대학교</p>
             <p class="member-role">Cloud Security</p>
-            
+
             <div class="member-links">
               <a href="https://github.com/jbbok89" target="_blank" class="btn">
                 <i data-lucide="github"></i> GitHub
               </a>
-              <a href="https://personal-page-self-five.vercel.app/" target="_blank" class="btn">
+              <a
+                href="https://personal-page-self-five.vercel.app/"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="globe"></i> Portfolio
               </a>
-              <a href="https://luckyd8.tistory.com/" target="_blank" class="btn">
+              <a
+                href="https://luckyd8.tistory.com/"
+                target="_blank"
+                class="btn"
+              >
                 <i data-lucide="book-open"></i> Blog
               </a>
             </div>
           </div>
-
-        </div> </div> </div> <script>
-      lucide.createIcons();
+        </div>
+      </div>
+    </div>
+    <script>
+      lucide.createIcons()
     </script>
+    <script src="js/ticker.js"></script>
   </body>
 </html>

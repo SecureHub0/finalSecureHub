@@ -1,27 +1,36 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Security Community</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="css/common.css" /> <link rel="stylesheet" href="css/index.css" />  </head>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
   <body>
     <header>
       <a class="logo" href="index.html">Security<span>Community</span></a>
     </header>
 
+    <div class="ticker-wrapper">
+      <div class="ticker-title">실시간 보안 동향</div>
+      <div class="ticker-rail" id="tickerRail">보안 피드 로딩 중...</div>
+    </div>
+
     <main>
       <h1>분야를 선택하세요</h1>
       <p>학습할 보안 분야를 골라주세요</p>
-      
+
       <div class="cards">
         <a class="card card--web" href="main.html?field=web">
           <div class="card-icon">
-            <i data-lucide="globe"></i> </div>
+            <i data-lucide="globe"></i>
+          </div>
           <h2>Web</h2>
           <ul>
             <li>XSS</li>
@@ -29,10 +38,11 @@
             <li>CSRF</li>
           </ul>
         </a>
-        
+
         <a class="card card--sys" href="main.html?field=system">
           <div class="card-icon">
-            <i data-lucide="terminal"></i> </div>
+            <i data-lucide="terminal"></i>
+          </div>
           <h2>System</h2>
           <ul>
             <li>Buffer Overflow</li>
@@ -40,10 +50,11 @@
             <li>PIE</li>
           </ul>
         </a>
-        
+
         <a class="card card--cloud" href="main.html?field=cloud">
           <div class="card-icon">
-            <i data-lucide="cloud"></i> </div>
+            <i data-lucide="cloud"></i>
+          </div>
           <h2>Cloud</h2>
           <ul>
             <li>IAM 취약점</li>
@@ -51,10 +62,11 @@
             <li>공동책임모델</li>
           </ul>
         </a>
-    
+
         <a class="card card--about" href="about.html">
           <div class="card-icon">
-            <i data-lucide="users"></i> </div>
+            <i data-lucide="users"></i>
+          </div>
           <h2>About</h2>
           <ul>
             <li>Github</li>
@@ -66,7 +78,8 @@
     </main>
 
     <script>
-      lucide.createIcons();
+      lucide.createIcons()
     </script>
+    <script src="js/ticker.js"></script>
   </body>
 </html>

@@ -20,6 +20,11 @@
       </div>
     </header>
 
+    <div class="ticker-wrapper">
+      <div class="ticker-title">실시간 보안 동향</div>
+      <div class="ticker-rail" id="tickerRail">보안 피드 로딩 중...</div>
+    </div>
+
     <div class="container">
       <nav class="top-nav">
         <a href="main.html?field=web">WEB</a>
@@ -28,7 +33,6 @@
       </nav>
 
       <div class="main-wrapper">
-        
         <aside class="sidebar">
           <h3>분류</h3>
           <ul id="sidebarMenu">
@@ -38,13 +42,13 @@
             <li><a href="#" data-category="cve">CVE</a></li>
           </ul>
         </aside>
-        
+
         <main class="content">
           <div class="content-header">
             <h2 id="contentTitle">WEB 보안 취약점</h2>
             <p id="contentCrumb">분류: WEB &gt; 전체보기</p>
           </div>
-          
+
           <table class="board-table">
             <thead>
               <tr>
@@ -57,11 +61,11 @@
             <tbody id="boardBody"></tbody>
           </table>
         </main>
-        
       </div>
     </div>
 
-    <script src="js/postData.js"></script> 
+    <script src="js/postData.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/ticker.js"></script>
   </body>
 </html>
